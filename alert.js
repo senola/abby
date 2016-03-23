@@ -18,7 +18,7 @@
     console.log(abby);
 })();
 function timeChange() {
-	var d = new Date();
+    var d = new Date();
     return getFullTime(d.getFullYear()) + "年" + (getFullTime(d.getMonth() + 1)) + "月" + getFullTime(d.getDate()) + "日 " + getFullTime(d.getHours()) + ":" + getFullTime(d.getMinutes()) + ":" + getFullTime(d.getSeconds());
 }
 function getFullTime(time) {
