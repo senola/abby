@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        #box{
+            width: 420px;
+            height: 420px;
+            margin:100px auto;
+            border: 3px solid red;
+        }
+
+        #box ul{
+            list-style:none;
+            margin-top:5px;
+        }
+        #box ul li{
+            float: left;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            border: 2px solid #fff;
+            cursor: pointer;
+        }
+        #box ul li:hover{
+            border: 2px solid #000;
+        }
+        #box ul li img{
+            margin-top:15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="img/big01.jpg" width="420" id="imgBig"/>
+        <ul>
+            <li id="li01"><img src="img/01.jpg" ></li>
+            <li id="li02"><img src="img/02.jpg" ></li>
+            <li id="li03"><img src="img/03.jpg" ></li>
+            <li id="li04"><img src="img/04.jpg" ></li>
+            <li id="li05"><img src="img/05.jpg" ></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+     /*var imgBig = document.getElementById('imgBig');
+     var myLi01 = document.getElementById('li01');
+     var myLi02 = document.getElementById('li02');
+     var myLi03 = document.getElementById('li03');
+     var myLi04 = document.getElementById('li04');
+     var myLi05 = document.getElementById('li05');
+
+     myLi01.onmouseenter = function(){
+        //当鼠标移入小图，切换大图（改变img标签的src路径）
+        imgBig.src = 'img/big01.jpg';
+     }
+
+     myLi02.onmouseenter = function(){
+        //当鼠标移入小图，切换大图（改变img标签的src路径）
+        imgBig.src = 'img/big02.jpg';
+     }
+
+     myLi03.onmouseenter = function(){
+        //当鼠标移入小图，切换大图（改变img标签的src路径）
+        imgBig.src = 'img/big03.jpg';
+     }
+     myLi04.onmouseenter = function(){
+        //当鼠标移入小图，切换大图（改变img标签的src路径）
+        imgBig.src = 'img/big04.jpg';
+     }
+     myLi05.onmouseenter = function(){
+        //当鼠标移入小图，切换大图（改变img标签的src路径）
+        imgBig.src = 'img/big05.jpg';
+     }*/
+
+     function myFn(id,url){
+        var imgBig = document.getElementById('imgBig');
+        var myLi = document.getElementById(id);
+        myLi.onmouseenter = function(){
+            //当鼠标移入小图，切换大图（改变img标签的src路径）
+            imgBig.src = url;
+        }
+     }
+     myFn('li01','img/big01.jpg');
+     myFn('li02','img/big02.jpg');
+     myFn('li03','img/big03.jpg');
+     myFn('li04','img/big04.jpg');
+     myFn('li05','img/big05.jpg');
+</script>

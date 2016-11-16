@@ -32,11 +32,11 @@ var hours = [],
 
 var map = ['a', 'b', 'c', 'd', 'e', 'f'];
 
-var endTime = new Date("2016", "05", "21", "07", "55", "00");
+var startTime = new Date(2016, 4, 21, 7, 55);
 
 function updateDate() {
     currentDate = new Date();
-    var duration = endTime.getTime() - currentDate.getTime();
+    var duration = currentDate.getTime() - startTime.getTime();
 
     currentHours = parseInt((duration / (1000 * 60 * 60)) % 24);
     if (currentHours < 10) {
