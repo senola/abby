@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        .tab{
+            width: 500px;
+            height: 290px;
+            margin:100px auto;
+            border: 1px solid #000;
+        }
+        .tab ul{
+            list-style:none;
+            height: 40px;
+            border-bottom: 1px solid #000;
+        }
+        .tab ul li{
+            float: left;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .tab ul li a{
+            width: 100px;
+            height: 40px;
+            display: block;
+            background: #ccc;
+            color:#000;
+            text-decoration:none;
+        }
+        .tab ul li.cur a{
+            background: pink;
+            font-weight:bold;
+        }
+        .tab>div{
+            font-size:100px;
+            text-align: center;
+            height: 250px;
+            background: #ccc;
+            display: none;
+        }
+        .tab>div.cur{
+            display: block;
+        }
+    </style>
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
+    <script type="text/javascript">
+         $(function(){
+            $('.tab ul li').mouseenter(function(){
+                $(this).addClass('cur').siblings().removeClass('cur');
+                $('.tab>div').eq($(this).index()).addClass('cur').siblings().removeClass('cur');
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="tab">
+    <ul>
+        <li><a href="##">公告</a></li>
+        <li><a href="##">规则</a></li>
+        <li><a href="##">安全</a></li>
+        <li><a href="##">公益</a></li>
+        <li><a href="##">论坛</a></li>
+    </ul>
+    <div>
+        1.公告内容
+        2.公告内容
+    </div>
+    <div>
+        1.规则内容
+        2.规则内容
+    </div>
+    <div>
+        1.安全内容
+        2.安全内容
+    </div>
+    <div>
+        1.公益内容
+        2.公益内容
+    </div>
+    <div>
+        1.论坛内容
+        2.论坛内容
+    </div>
+
+</div>
+
+</body>
+</html>
