@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        .con{
+            width: 900px;
+            height: 350px;
+            margin:100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .con ul{
+            width: 5400px;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .con ul li{
+            list-style:none;
+            float: left;
+        }
+        .con>a{
+            width: 40px;
+            height: 100px;
+            background: url(img/index.png) no-repeat;
+            position: absolute;
+            top:50%;
+            margin-top:-50px;
+        }
+        .con a.leftBtn{
+            left:0;
+        }
+        .con a.rightBtn{
+            right:0;
+            background-position:-50px 0;
+        }
+        .con ol{
+            list-style:none;
+            position: absolute;
+            bottom:20px;
+            right:30px;
+        }
+        .con ol li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #fff;
+            background: #333;
+            text-align: center;
+            line-height: 20px;
+            color:#999;
+            margin-left:10px;
+            cursor: pointer;
+        }
+        .con ol li.cur{
+            color:#f60;
+            border: 1px solid #f60;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
+<script type="text/javascript">
+     $(function(){
+        var imgIndex = 0;
+        var olIndex = 0;
+        function myFn(){
+            imgIndex++;
+            if(imgIndex>5){
+            $('.con ul').css('left','0');
+            imgIndex=1
+            };
+            var move = imgIndex * -900;
+            $('.con ul').stop().animate({'left':move+'px'},500);
+            olIndex++;
+            if(olIndex>4){
+            $('.con ul').css('left','0');
+            olIndex=0
+            };
+            $('.con ol li').eq(olIndex).addClass('cur').siblings().removeClass('cur');
+        };
+        var timer=null;
+
+        $('.con .rightBtn').click(function(){
+            myFn();
+        });
+        $('.con .leftBtn').click(function(){
+            imgIndex--;
+            if(imgIndex<0){
+            $('.con ul').css('left','-4500px');
+            imgIndex=4
+            };
+            var move = imgIndex * -900;
+            $('.con ul').stop().animate({'left':move+'px'},500);
+            olIndex--;
+            if(olIndex<0){
+            $('.con ul').css('left','0');
+            olIndex=4
+            };
+            $('.con ol li').eq(olIndex).addClass('cur').siblings().removeClass('cur');
+        });
+        $('.con ol li').click(function(){
+            $(this).addClass('cur').siblings().removeClass('cur');
+            imgIndex=$(this).index();
+            olIndex=$(this).index();
+            var move =imgIndex*-900;
+            $('.con ul').css({'left':move+'px'});
+        });
+        timer=setInterval(function(){
+            myFn();
+        },3000);
+        $('.con').hover(function(){
+            clearInterval(timer);
+        },function(){
+            timer=setInterval(function(){
+                myFn();
+            },3000)
+            });
+
+     });
+</script>
+<body>
+    <div class="con">
+        <ul>
+            <li><img src="img/01.jpg" width="900" height="350" /></li>
+            <li><img src="img/02.jpg" width="900" height="350" /></li>
+            <li><img src="img/03.jpg" width="900" height="350" /></li>
+            <li><img src="img/04.jpg" width="900" height="350" /></li>
+            <li><img src="img/05.jpg" width="900" height="350" /></li>
+            <li><img src="img/01.jpg" width="900" height="350" /></li>
+        </ul>
+        <ol>
+            <li class="cur">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+        <a href="##" class="leftBtn"></a>
+        <a href="##" class="rightBtn"></a>
+    </div>
+</body>
+</html>
