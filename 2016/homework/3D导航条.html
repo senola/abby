@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        ul{list-style:none;}
+        li{
+            width: 140px;
+            height: 60px;
+            margin:100px auto;
+            transition:all 1s;
+            perspective:5000px;
+            transform-style:preserve-3d;
+            float: left;
+        }
+        li span{
+            width: 140px;
+            height: 60px;
+            position: absolute;
+            top:0;
+            left:0;
+            display: block;
+            text-align: center;
+            line-height: 60px;
+        }
+        li span:nth-of-type(1){
+            background: green;
+            transform:translateZ(30px);
+        }
+        li span:nth-of-type(2){
+            background: orange;
+            transform:rotateX(90deg) translateZ(30px);
+        }
+
+        li:hover{
+            transform:rotateX(-90deg);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <span>公司新闻</span>
+            <span>GONGSI JIANJIE</span>
+        </li>
+        <li>
+            <span>公司新闻</span>
+            <span>GONGSI JIANJIE</span>
+        </li>
+        <li>
+            <span>公司新闻</span>
+            <span>GONGSI JIANJIE</span>
+        </li>
+    </ul>
+</body>
+</html>
