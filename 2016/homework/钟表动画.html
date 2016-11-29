@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        body{background: #000;}
+        *{margin: 0;padding: 0;}
+        .time{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            margin:100px auto;
+            border-radius:50%;
+            box-shadow:2px 3px 10px lightseagreen;
+            position: relative;
+        }
+        .time p{
+            width: 8px;
+            height: 8px;
+            border-radius:50%;
+            background: #fff;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+        }
+        .time span{
+            width: 22px;
+            height: 22px;
+            color:#fff;
+            font-size:18px;
+            font-family:arial;
+            position: absolute;
+            text-align: center;
+        }
+        span.hour3{
+            top:50%;
+            right:5px;
+            transform:translateY(-50%);
+        }
+        span.hour6{
+            bottom:5px;
+            left:50%;
+            transform:translateX(-50%);
+        }
+        span.hour9{
+            top:50%;
+            left:5px;
+            transform:translateY(-50%);
+        }
+        span.hour12{
+            top:5px;
+            left:50%;
+            transform:translateX(-50%);
+        }
+
+        .time div{
+            width: 5px;
+            height: 50px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            border-radius:3px;
+            transform:translate(-50%,-100%);
+            transform-origin:bottom;
+        }
+        .time div.shi{
+            background: #333;
+            border-radius:3px;
+        }
+        .time div.fen{
+            width: 3px;
+            height: 60px;
+            background: green;
+        }
+        .time div.miao{
+            width: 1px;
+            height: 70px;
+            background: red;
+            /* animation:time 2s linear infinite; */
+
+        }
+
+        /* @keyframes time{
+            0%{
+                transform:translate(-50%,-100%) rotate(17deg);
+            }
+            100%{
+                transform:translate(-50%,-100%) rotate(360deg);
+            }
+        } */
+    </style>
+</head>
+<body>
+    <div class="time">
+        <span class="hour3">3</span>
+        <span class="hour6">6</span>
+        <span class="hour9">9</span>
+        <span class="hour12">12</span>
+
+        <div class="shi"></div>
+        <div class="fen"></div>
+        <div class="miao"></div>
+        <p></p>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+    function time(){
+         var date = new Date(); //获取当前时间
+         var H = date.getHours(); //获取小时
+         var M = date.getMinutes();//获取分钟
+         var S = date.getSeconds();//获取秒数
+
+         if(H > 12){ //如果大于12点就减去12
+            H = H-12;
+            //alert(H)
+         }
+
+         $('.time .shi').css('transform','translate(-50%,-100%) rotate('+H*30+'deg)');
+         $('.time .fen').css('transform','translate(-50%,-100%) rotate('+M*6+'deg)');
+         $('.time .miao').css('transform','translate(-50%,-100%) rotate('+S*6+'deg)');
+    }
+    time();
+
+    setInterval(function(){
+        time();
+    },1000)
+</script>
